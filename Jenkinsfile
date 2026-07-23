@@ -106,24 +106,28 @@ pipeline {
             }
         }
     }
-
-    post {
+post {
 
         always {
             junit allowEmptyResults: true,
                   testResults: 'results/junit.xml'
 
+            publishHTML(target: [
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright Report',
+                keepAll: true,
+                allowMissing: true,
+                alwaysLinkToLastBuild: true
+            ])
+
             archiveArtifacts artifacts: 'playwright-report/**,results/**,test-results/**',
                              allowEmptyArchive: true,
                              fingerprint: true
-
-            echo 'HTML report archived. Download playwright-report and open index.html.'
         }
 
         failure {
             echo "FAILED on ENV=${params.ENV}. Check the archived report and traces."
         }
-
-       
     }
 }
