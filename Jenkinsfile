@@ -124,8 +124,6 @@ pipeline {
             echo "FAILED on ENV=${params.ENV}. Check the archived report and traces."
         }
 
-        cleanup {
-            cleanWs()
-        }
+       
     }
 }
