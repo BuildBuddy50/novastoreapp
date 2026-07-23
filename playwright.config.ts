@@ -44,7 +44,8 @@ export default defineConfig({
     navigationTimeout: TIMEOUTS.pageLoad,
 
     // Headed locally for demos, headless in CI where there is no display.
-    headless: !!process.env.CI,
+    //headless: !!process.env.CI,
+    headless:false,
   },
 
   projects: [
