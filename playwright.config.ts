@@ -26,7 +26,7 @@ export default defineConfig({
   timeout: 90_000,
   expect: { timeout: TIMEOUTS.assertion },
 
-  globalSetup: './src/utils/globalSetup.ts',
+ // globalSetup: './src/utils/globalSetup.ts',
 
   reporter: [
     ['list'],
